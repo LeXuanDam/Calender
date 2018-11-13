@@ -15,3 +15,11 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('users', 'UserController');
+Route::get('users/delete/{id}', 'UserController@destroy');
+
+Route::resource('groups', 'GroupController');
+Route::get('groups/delete/{id}', 'GroupController@destroy');
+
+Route::resource('companys', 'CompanyController');
+Route::get('companys/delete/{id}', 'CompanyController@destroy');
