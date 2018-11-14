@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 class UsersController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('client')->with('partner')->orderBy('id','DESC')->get();
-        return view('orders.index', ['orders' => $orders->toJson()]);
+        $users = User::with('group')->where('level','<',9)->orderBy('id','DESC')->get();
+        return view('users.index', ['users' => $users->toJson()]);
     }
 
     public function create()
     {
-        return view('orders.create');
+        return view('users.create');
     }
 
     public function store(Request $request)
@@ -30,19 +30,19 @@ class UsersController extends Controller
             'status' => 1
         ]);
         $order->save();
-        return redirect('/orders')->with('success', 'New order has been added');
+        return redirect('/users')->with('success', 'New order has been added');
     }
 
     public function show($id)
     {
         $order = Order::with('client')->with('partner')->find($id);
-        return view('orders.show',['order' => $order]);
+        return view('users.show',['order' => $order]);
     }
 
     public function edit($id)
     {
         $order = Order::find($id);
-        return view('orders.edit', compact('order'));
+        return view('users.edit', compact('order'));
     }
 
     public function update(Request $request, $id)
@@ -51,7 +51,7 @@ class UsersController extends Controller
         $order->display_name = $request->get('display_name');
         $order->save();
 
-        return redirect('/orders')->with('success', 'order has been updated');
+        return redirect('/users')->with('success', 'order has been updated');
     }
 
     public function destroy($id)
@@ -62,7 +62,7 @@ class UsersController extends Controller
             }";
             $param = json_decode($param);
             $client = new Client();
-            $res = $client->request('POST', 'http://159.65.135.188:9670/orders/reverse', [
+            $res = $client->request('POST', 'http://159.65.135.188:9670/users/reverse', [
                 'headers'=>[
                     'Access-Token'=>''
                 ],
@@ -73,6 +73,6 @@ class UsersController extends Controller
         }
         dd($res);
 
-        return redirect('/orders')->with('success', 'order has been reverse Successfully');
+        return redirect('/users')->with('success', 'order has been reverse Successfully');
     }
 }

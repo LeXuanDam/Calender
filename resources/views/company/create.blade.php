@@ -25,13 +25,26 @@
             </ul>
         </div>
         @endif
-        <form method="post" action="{{ route('clients.update', $client->id) }}" class="form-horizontal form-label-left">
-        @method('PATCH')
+        <form method="post" action="/clients" class="form-horizontal form-label-left">
         {{ csrf_field() }}
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone_number">Phone <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" name="phone" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Name <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="text" name="password" name="password" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+            </div>
             <div class="form-group">
                 <label for="display_name" class="control-label col-md-3 col-sm-3 col-xs-12">Display Name</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input name="display_name" class="form-control col-md-7 col-xs-12" type="text" name="display_name" value={{$client->display_name}}>
+                    <input name="display_name" class="form-control col-md-7 col-xs-12" type="text" name="display_name">
                 </div>
             </div>
             <div class="ln_solid"></div>
