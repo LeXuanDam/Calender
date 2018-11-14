@@ -4,7 +4,7 @@
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <a href="/clients" class="btn btn-success">Back</a>
+      <a href="/user" class="btn btn-success">Back</a>
     </div>
   </div>
   <div class="clearfix"></div>
@@ -25,7 +25,7 @@
             </ul>
         </div>
         @endif
-        <form method="post" action="/clients" class="form-horizontal form-label-left">
+        <form method="post" action="/user" class="form-horizontal form-label-left">
         {{ csrf_field() }}
             <div class="form-group">
                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone_number">Phone <span class="required">*</span>

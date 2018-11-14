@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Log;
+
 class UsersController extends Controller
 {
     public function index()
@@ -23,42 +25,42 @@ class UsersController extends Controller
             'phone_number'=>'required',
             'password'=> 'required'
         ]);
-        $order = new Order([
+        $user = new Order([
             'phone_number' => $request->get('phone_number'),
             'password'=> bcrypt($request->get('password')),
             'display_name'=> $request->get('display_name'),
             'status' => 1
         ]);
-        $order->save();
-        return redirect('/users')->with('success', 'New order has been added');
+        $user->save();
+        return redirect('/users')->with('success', 'New user has been added');
     }
 
     public function show($id)
     {
-        $order = Order::with('client')->with('partner')->find($id);
-        return view('users.show',['order' => $order]);
+        $user = User::with('group')->find($id);
+        return view('users.show',['user' => $user]);
     }
 
     public function edit($id)
     {
-        $order = Order::find($id);
-        return view('users.edit', compact('order'));
+        $user = Order::find($id);
+        return view('users.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
-        $order = Order::find($id);
-        $order->display_name = $request->get('display_name');
-        $order->save();
+        $user = Order::find($id);
+        $user->display_name = $request->get('display_name');
+        $user->save();
 
-        return redirect('/users')->with('success', 'order has been updated');
+        return redirect('/users')->with('success', 'user has been updated');
     }
 
     public function destroy($id)
     {
         try {
             $param="{
-            'order_id':$id
+            'user_id':$id
             }";
             $param = json_decode($param);
             $client = new Client();
@@ -73,6 +75,6 @@ class UsersController extends Controller
         }
         dd($res);
 
-        return redirect('/users')->with('success', 'order has been reverse Successfully');
+        return redirect('/users')->with('success', 'user has been reverse Successfully');
     }
 }

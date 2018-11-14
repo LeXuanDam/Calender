@@ -12,7 +12,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Users</h2>
+                        <h2>List Users</h2>
                         <span class="pull-right">
                             <a class="btn btn-success" href="/user/create">Create</a>
                         </span>
@@ -46,6 +46,14 @@
                     title: "Gender", name: "gender",width: "50px", itemTemplate: function (val, item) {
                         if(val == 1)  return $("<span>").text("Men");
                         if(val == 0)  return $("<span>").text("Women");
+                    }
+                },
+                {
+                    width:"100px", align:"center",itemTemplate: function (value, item) {
+                        var $result = $([]);
+                        $result = $result.add($("<a>").addClass("btn btn-xs btn-info").attr("href", "/user/" + item.id).text("View"));
+                        $result = $result.add($("<a>").addClass("btn btn-xs btn-danger").attr("href", "/user/delete/" + item.id).text("Delete"));
+                        return $result;
                     }
                 },
             ]

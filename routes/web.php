@@ -12,14 +12,17 @@
 */
 
 Auth::routes();
-
+Route::get('/logout',function (){
+   Auth::logout();
+   Return redirect('/');
+});
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('user', 'UsersController');
-Route::get('users/delete/{id}', 'UsersController@destroy');
+Route::resource('user', 'UsersController')->middleware('auth');
+Route::get('users/delete/{id}', 'UsersController@destroy')->middleware('auth');
 
-Route::resource('group', 'GroupController');
-Route::get('group/delete/{id}', 'GroupController@destroy');
+Route::resource('group', 'GroupController')->middleware('auth');
+Route::get('group/delete/{id}', 'GroupController@destroy')->middleware('auth');
 
-Route::resource('company', 'CompanyController');
-Route::get('company/delete/{id}', 'CompanyController@destroy');
+Route::resource('company', 'CompanyController')->middleware('auth');
+Route::get('company/delete/{id}', 'CompanyController@destroy')->middleware('auth');

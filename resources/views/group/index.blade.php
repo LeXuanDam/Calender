@@ -4,7 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Users</h3>
+                <h3>Group</h3>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -12,9 +12,9 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Users</h2>
+                        <h2>List Group</h2>
                         <span class="pull-right">
-                            <a class="btn btn-success" href="/user/create">Create</a>
+                            <a class="btn btn-success" href="/group/create">Create</a>
                         </span>
                         <div class="clearfix"></div>
                     </div>

@@ -4,7 +4,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <a href="/orders" class="btn btn-success">Back</a>
+                <a href="/user" class="btn btn-primary">Back</a>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -12,80 +12,67 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>order # {{$users->id}}</h2>
+                        <h2>User # {{$user->id}}</h2>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-                            <div class="profile_img">
-                                <div id="crop-avatar">
-                                    <!-- Current avatar -->
-                                    <img class="img-responsive avatar-view" src="{{ asset('images/picture.jpg') }}"
-                                         alt="Avatar" title="Change the avatar">
+                        <div class="col-md-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-xs-12 profile_left">
+                        <form action="#" method="post">
+                            <div class="form-group row">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Name <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" name="name" required="required" value="{{$user->name}}" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
-                            <h3>Details</h3>
-                            <ul class="list-unstyled user_data">
-                                <li>
-                                    Address: <i class="fa fa-briefcase user-profile-icon"></i> {{$users->address}}
-                                </li>
-                                <li>
-                                    Created At: <i class="fa fa-briefcase user-profile-icon"></i> {{$users->created_at}}
-                                </li>
-                                <li>
-                                    Charge Amount: <i class="fa fa-briefcase user-profile-icon"></i> {{$users->charge_amount}}
-                                </li>
-                                <li>
-                                    Deduced Point: <i class="fa fa-briefcase user-profile-icon"></i> {{$users->partner_deduce_point}}
-                                </li>
-                                <li>
-                                    Rating: <i class="fa fa-briefcase user-profile-icon"></i> {{$users->client_rating}}
-                                </li>
-                                <li>
-                                    Status: <i class="fa fa-briefcase user-profile-icon"></i> {{$users->status}}
-                                </li>
-                            </ul>
+                            <div class="form-group row">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="phone">Phone <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" name="phone" required="required" value="{{$user->phone}}" readonly class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="email">Email <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" name="email" value="{{$user->email}}" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="address">Address <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" name="address" value="{{$user->address}}" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="birthday">Birthday <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="text" name="birthday" value="{{$user->birthday}}" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="avatar">Avatar <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="file" name="avatar" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="password">Password <span class="required">*</span>
+                                </label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input type="password" name="password" value="{{$user->password}}" required="required" class="form-control col-md-7 col-xs-12">
+                                </div>
+                            </div>
+                            <div style="text-align: center">
+                                <input type="submit" value="Save" class="btn btn-success">
+                            </div>
                             <br/>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <div class="profile_title">
-                                <div class="col-md-12">
-                                    <h2>Details of client / partner</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Client</h2>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <ul>
-                                                <li>Name: {{$users->client->display_name}}</li>
-                                                <li>Phone Number: {{$users->client->phone_number}}</li>
-                                                <li>Reward point: {{$users->client->reward_points}}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Partner</h2>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <ul>
-                                                <li>Name: {{$users->partner->email}}</li>
-                                                <li>Phone Number: {{$users->partner->phone_number}}</li>
-                                                <li>Partner deduced point: {{$users->partner_deduce_point}}</li>
-                                                <li>Balance: {{$users->partner->balance}}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                        </form>
                         </div>
                     </div>
                 </div>

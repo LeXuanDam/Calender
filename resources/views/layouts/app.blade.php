@@ -11,6 +11,8 @@
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- JsGrid -->
     <link href="{{ asset('css/jsgrid.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jsgrid-theme.min.css') }}" rel="stylesheet">
     <!-- Custom Theme Style -->
