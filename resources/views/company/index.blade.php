@@ -33,7 +33,7 @@
             sorting: true,
             paging: true,
 
-            data: JSON.parse(@json($users)),
+            data: JSON.parse(@json($company)),
 
             fields: [
                 {title: "ID", name: "id", width:"20px"},
