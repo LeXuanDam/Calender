@@ -22,17 +22,18 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'phone_number'=>'required',
-            'password'=> 'required'
+            'phone'=>'required',
+            'password'=> 'required',
+            'name'=>'required'
         ]);
-        $user = new Order([
-            'phone_number' => $request->get('phone_number'),
+        $user = new User([
+            'phone_number' => $request->get('phone'),
             'password'=> bcrypt($request->get('password')),
-            'display_name'=> $request->get('display_name'),
-            'status' => 1
+            'name'=> $request->get('name'),
+            'status' => 1,
         ]);
         $user->save();
-        return redirect('/users')->with('success', 'New user has been added');
+        return redirect('/user')->with('success', 'New user has been added');
     }
 
     public function show($id)
@@ -43,38 +44,35 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        $user = Order::find($id);
-        return view('users.edit', compact('user'));
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
-        $user = Order::find($id);
-        $user->display_name = $request->get('display_name');
+        $user = User::find($id);
+        $user->name = $request->get('name');
+        if($request->password != null){
+            $user->name = bcrypt($request->password);
+        }
+        if($request->address != null){
+            $user->name = ($request->address);
+        }
+        if($request->birthday != null){
+            $user->name = ($request->birthday);
+        }
+        if($request->gender != null){
+            $user->name = ($request->gender);
+        }
         $user->save();
 
-        return redirect('/users')->with('success', 'user has been updated');
+        return redirect('/user')->with('success', 'user has been updated');
     }
 
     public function destroy($id)
     {
-        try {
-            $param="{
-            'user_id':$id
-            }";
-            $param = json_decode($param);
-            $client = new Client();
-            $res = $client->request('POST', 'http://159.65.135.188:9670/users/reverse', [
-                'headers'=>[
-                    'Access-Token'=>''
-                ],
-                'form_params' => $param
-            ]);
-        }catch (\Exception $e){
-            dd($e);
-        }
-        dd($res);
-
-        return redirect('/users')->with('success', 'user has been reverse Successfully');
+       $user = User::find($id);
+        $user->delete();
+        return redirect('/user')->with('success', 'user has been delete Successfully');
     }
 }

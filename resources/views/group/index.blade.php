@@ -36,16 +36,15 @@
             data: JSON.parse(@json($group)),
 
             fields: [
-                {title: "ID", name: "id", width:"20px"},
                 {title: "Name", name: "name"},
-                {title: "Phone", name: "phone"},
-                {title: "Email", name: "email",width:"150px"},
-                {title: "Birthday", name: "birthday"},
-                {title: "Address", name: "address"},
+                {title: "Đại diện", name: "director"},
+                {title: "Tổng số người", name: "total",width:"150px"},
                 {
-                    title: "Gender", name: "gender",width: "50px", itemTemplate: function (val, item) {
-                        if(val == 1)  return $("<span>").text("Men");
-                        if(val == 0)  return $("<span>").text("Women");
+                    width:"100px", align:"center",itemTemplate: function (value, item) {
+                        var $result = $([]);
+                        $result = $result.add($("<a>").addClass("btn btn-xs btn-info").attr("href", "/group/" + item.id).text("View"));
+                        $result = $result.add($("<a>").addClass("btn btn-xs btn-danger").attr("href", "/group/delete/" + item.id).text("Delete"));
+                        return $result;
                     }
                 },
             ]

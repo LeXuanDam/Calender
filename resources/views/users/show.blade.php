@@ -17,7 +17,7 @@
                     </div>
                     <div class="x_content">
                         <div class="col-md-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-xs-12 profile_left">
-                        <form action="#" method="post">
+                        <form action="user/{{$user->id}}" method="put">
                             <div class="form-group row">
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Name <span class="required">*</span>
                                 </label>
@@ -33,35 +33,35 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="email">Email <span class="required">*</span>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="email">Email
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
                                     <input type="text" name="email" value="{{$user->email}}" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="address">Address <span class="required">*</span>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="address">Address
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
                                     <input type="text" name="address" value="{{$user->address}}" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="birthday">Birthday <span class="required">*</span>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="birthday">Birthday
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
                                     <input type="text" name="birthday" value="{{$user->birthday}}" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="avatar">Avatar <span class="required">*</span>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="avatar">Avatar
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
                                     <input type="file" name="avatar" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="password">Password <span class="required">*</span>
+                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="password">Password
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
                                     <input type="password" name="password" value="{{$user->password}}" required="required" class="form-control col-md-7 col-xs-12">

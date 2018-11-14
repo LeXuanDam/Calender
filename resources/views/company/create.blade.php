@@ -42,9 +42,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="display_name" class="control-label col-md-3 col-sm-3 col-xs-12">Display Name</label>
+                <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input name="display_name" class="form-control col-md-7 col-xs-12" type="text" name="display_name">
+                    <input name="email" class="form-control col-md-7 col-xs-12" type="text">
                 </div>
             </div>
             <div class="ln_solid"></div>

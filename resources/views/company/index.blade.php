@@ -36,16 +36,16 @@
             data: JSON.parse(@json($company)),
 
             fields: [
-                {title: "ID", name: "id", width:"20px"},
                 {title: "Name", name: "name"},
+                {title: "Đại diện", name: "director"},
                 {title: "Phone", name: "phone"},
                 {title: "Email", name: "email",width:"150px"},
-                {title: "Birthday", name: "birthday"},
-                {title: "Address", name: "address"},
                 {
-                    title: "Gender", name: "gender",width: "50px", itemTemplate: function (val, item) {
-                        if(val == 1)  return $("<span>").text("Men");
-                        if(val == 0)  return $("<span>").text("Women");
+                    width:"100px", align:"center",itemTemplate: function (value, item) {
+                        var $result = $([]);
+                        $result = $result.add($("<a>").addClass("btn btn-xs btn-info").attr("href", "/company/" + item.id).text("View"));
+                        $result = $result.add($("<a>").addClass("btn btn-xs btn-danger").attr("href", "/company/delete/" + item.id).text("Delete"));
+                        return $result;
                     }
                 },
             ]
