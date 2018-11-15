@@ -8,7 +8,7 @@ class GroupController extends Controller
 {
     public function index()
     {
-        $group = Group::orderBy('id', 'DESC')->get();
+        $group = Group::with('user')->orderBy('id', 'DESC')->get();
         return view('group.index', ['group' => $group->toJson()]);
     }
 

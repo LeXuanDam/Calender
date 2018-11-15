@@ -8,7 +8,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $company = Company::orderBy('id','DESC')->get();
+        $company = Company::with('user')->orderBy('id','DESC')->get();
         return view('company.index', ['company' => $company->toJson()]);
     }
 
@@ -20,14 +20,16 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'phone'=> 'required'
+            'company_name'=>'required',
+            'phone'=> 'required',
+            'director'=> 'required'
         ]);
-        $company = new Order([
-            'phone' => $request->get('phone'),
-            'name'=> $request->get('name'),
-            'email' =>$request->get('email'),
-        ]);
+        $company = new Company();
+        $company->company_name = $request->get('company_name');
+        $company->phone = $request->get('phone');
+        $company->email = $request->get('email');
+        $company->address = $request->get('address');
+        $company->director = $request->get('director');
         $company->save();
         return redirect('/company')->with('success', 'New company has been added');
     }
@@ -47,10 +49,11 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $company = Company::find($id);
-        $company->name = $request->get('name');
+        $company->company_name = $request->get('company_name');
         $company->phone = $request->get('phone');
         $company->email = $request->get('email');
-
+        $company->address = $request->get('address');
+        $company->director = $request->get('director');
         $company->save();
 
         return redirect('/company')->with('success', 'company has been updated');

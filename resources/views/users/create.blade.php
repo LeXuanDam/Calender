@@ -4,7 +4,7 @@
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <a href="/user" class="btn btn-success">Back</a>
+      <a href="/user" class="btn btn-primary">Back</a>
     </div>
   </div>
   <div class="clearfix"></div>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="display_name" class="control-label col-md-3 col-sm-3 col-xs-12">Password</label>
+                <label for="display_name" class="control-label col-md-3 col-sm-3 col-xs-12">Password  <span class="required">*</span></label>
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <input name="password" class="form-control col-md-7 col-xs-12" type="text">
                 </div>

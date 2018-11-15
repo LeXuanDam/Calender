@@ -45,24 +45,25 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('user.edit', compact('user'));
+        return view('users.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        $user->name = $request->get('name');
+
+        $user->name = $request->name;
         if($request->password != null){
-            $user->name = bcrypt($request->password);
+            $user->password = bcrypt($request->password);
         }
         if($request->address != null){
-            $user->name = ($request->address);
+            $user->address = ($request->address);
         }
         if($request->birthday != null){
-            $user->name = ($request->birthday);
+            $user->birthday = ($request->birthday);
         }
-        if($request->gender != null){
-            $user->name = ($request->gender);
+        if($request->email != null){
+            $user->email = ($request->email);
         }
         $user->save();
 

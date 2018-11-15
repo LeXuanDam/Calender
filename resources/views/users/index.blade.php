@@ -19,6 +19,11 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        @if(session()->get('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div><br/>
+                        @endif
                         <div id="myGrid" style="height: 600px;" class="ag-theme-balham"></div>
                     </div>
                 </div>

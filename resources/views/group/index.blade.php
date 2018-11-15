@@ -19,6 +19,11 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        @if(session()->get('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div><br/>
+                        @endif
                         <div id="myGrid" style="height: 600px;" class="ag-theme-balham"></div>
                     </div>
                 </div>
@@ -32,12 +37,15 @@
             editing: false,
             sorting: true,
             paging: true,
-
             data: JSON.parse(@json($group)),
 
             fields: [
-                {title: "Name", name: "name"},
-                {title: "Đại diện", name: "director"},
+                {title: "Name", name: "group_name"},
+                {
+                    title:"Người tạo",itemTemplate: function (value, item) {
+                        return item.user.name;
+                    }
+                },
                 {title: "Tổng số người", name: "total",width:"150px"},
                 {
                     width:"100px", align:"center",itemTemplate: function (value, item) {

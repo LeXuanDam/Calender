@@ -17,7 +17,9 @@
                     </div>
                     <div class="x_content">
                         <div class="col-md-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-xs-12 profile_left">
-                        <form action="user/{{$user->id}}" method="put">
+                        <form action="{{ route('user.update', $user->id) }}" method="post">
+                            @method('PATCH')
+                            @csrf
                             <div class="form-group row">
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Name <span class="required">*</span>
                                 </label>
@@ -64,7 +66,7 @@
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="password">Password
                                 </label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input type="password" name="password" value="{{$user->password}}" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="password" name="password" class="form-control col-md-7 col-xs-12">
                                 </div>
                             </div>
                             <div style="text-align: center">

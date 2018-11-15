@@ -19,7 +19,7 @@ Route::get('/logout',function (){
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('user', 'UsersController')->middleware('auth');
-Route::get('users/delete/{id}', 'UsersController@destroy')->middleware('auth');
+Route::get('/user/delete/{id}', 'UsersController@destroy')->middleware('auth');
 
 Route::resource('group', 'GroupController')->middleware('auth');
 Route::get('group/delete/{id}', 'GroupController@destroy')->middleware('auth');

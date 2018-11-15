@@ -4,7 +4,7 @@
 <div class="">
   <div class="page-title">
     <div class="title_left">
-      <a href="/company" class="btn btn-success">Back</a>
+      <a href="/company" class="btn btn-primary">Back</a>
     </div>
   </div>
   <div class="clearfix"></div>
@@ -12,7 +12,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
       <div class="x_panel">
         <div class="x_title">
-          <h2>Create new client</h2>
+          <h2>Create new company</h2>
           <div class="clearfix"></div>
         </div>
         <div class="x_content">
@@ -25,35 +25,51 @@
             </ul>
         </div>
         @endif
-        <form method="post" action="/company" class="form-horizontal form-label-left">
-        {{ csrf_field() }}
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="phone_number">Phone <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" name="phone" required="required" class="form-control col-md-7 col-xs-12">
-                </div>
+            <div class="col-md-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-xs-12 profile_left">
+            <form action="/company" method="post">
+                    @csrf
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="company_name">Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" name="company_name" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="phone">Người đại diện <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" name="director" required="required"  class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="phone">Phone <span class="required">*</span>
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" name="phone" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="email">Email
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" name="email" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-md-2 col-sm-2 col-xs-12" for="address">Address
+                        </label>
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <input type="text" name="address" class="form-control col-md-7 col-xs-12">
+                        </div>
+                    </div>
+                    <div style="text-align: center">
+                        <input type="submit" value="Save" class="btn btn-success">
+                    </div>
+                    <br/>
+
+                </form>
             </div>
-            <div class="form-group">
-                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password">Name <span class="required">*</span>
-                </label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input type="text" name="password" name="password" required="required" class="form-control col-md-7 col-xs-12">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="email" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <input name="email" class="form-control col-md-7 col-xs-12" type="text">
-                </div>
-            </div>
-            <div class="ln_solid"></div>
-            <div class="form-group">
-                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                </div>
-            </div>
-        </form>
         </div>
       </div>
     </div>

@@ -19,6 +19,11 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
+                        @if(session()->get('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div><br/>
+                        @endif
                         <div id="myGrid" style="height: 600px;" class="ag-theme-balham"></div>
                     </div>
                 </div>
@@ -36,8 +41,10 @@
             data: JSON.parse(@json($company)),
 
             fields: [
-                {title: "Name", name: "name"},
-                {title: "Đại diện", name: "director"},
+                {title: "Name", name: "company_name"},
+                {title: "Đại diện", itemTemplate: function (value, item) {
+                        return item.user.name;
+                    }},
                 {title: "Phone", name: "phone"},
                 {title: "Email", name: "email",width:"150px"},
                 {
