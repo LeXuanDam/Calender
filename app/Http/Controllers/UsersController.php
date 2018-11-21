@@ -3,76 +3,77 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
 {
     public function index()
     {
-        $orders = Order::with('client')->with('partner')->orderBy('id','DESC')->get();
-        return view('orders.index', ['orders' => $orders->toJson()]);
+        $users = User::with('group')->where('level','<',9)->orderBy('id','DESC')->get();
+        return view('users.index', ['users' => $users->toJson()]);
     }
 
     public function create()
     {
-        return view('orders.create');
+        return view('users.create');
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'phone_number'=>'required',
-            'password'=> 'required'
+            'phone'=>'required',
+            'password'=> 'required',
+            'name'=>'required'
         ]);
-        $order = new Order([
-            'phone_number' => $request->get('phone_number'),
+        $user = new User([
+            'phone_number' => $request->get('phone'),
             'password'=> bcrypt($request->get('password')),
-            'display_name'=> $request->get('display_name'),
-            'status' => 1
+            'name'=> $request->get('name'),
+            'status' => 1,
         ]);
-        $order->save();
-        return redirect('/orders')->with('success', 'New order has been added');
+        $user->save();
+        return redirect('/user')->with('success', 'New user has been added');
     }
 
     public function show($id)
     {
-        $order = Order::with('client')->with('partner')->find($id);
-        return view('orders.show',['order' => $order]);
+        $user = User::with('group')->find($id);
+        return view('users.show',['user' => $user]);
     }
 
     public function edit($id)
     {
-        $order = Order::find($id);
-        return view('orders.edit', compact('order'));
+        $user = User::find($id);
+        return view('users.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
-        $order = Order::find($id);
-        $order->display_name = $request->get('display_name');
-        $order->save();
+        $user = User::find($id);
 
-        return redirect('/orders')->with('success', 'order has been updated');
+        $user->name = $request->name;
+        if($request->password != null){
+            $user->password = bcrypt($request->password);
+        }
+        if($request->address != null){
+            $user->address = ($request->address);
+        }
+        if($request->birthday != null){
+            $user->birthday = ($request->birthday);
+        }
+        if($request->email != null){
+            $user->email = ($request->email);
+        }
+        $user->save();
+
+        return redirect('/user')->with('success', 'user has been updated');
     }
 
     public function destroy($id)
     {
-        try {
-            $param="{
-            'order_id':$id
-            }";
-            $param = json_decode($param);
-            $client = new Client();
-            $res = $client->request('POST', 'http://159.65.135.188:9670/orders/reverse', [
-                'headers'=>[
-                    'Access-Token'=>''
-                ],
-                'form_params' => $param
-            ]);
-        }catch (\Exception $e){
-            dd($e);
-        }
-        dd($res);
-
-        return redirect('/orders')->with('success', 'order has been reverse Successfully');
+       $user = User::find($id);
+        $user->delete();
+        return redirect('/user')->with('success', 'user has been delete Successfully');
     }
 }
