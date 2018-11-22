@@ -26,12 +26,11 @@ class UsersController extends Controller
             'password'=> 'required',
             'name'=>'required'
         ]);
-        $user = new User([
-            'phone_number' => $request->get('phone'),
-            'password'=> bcrypt($request->get('password')),
-            'name'=> $request->get('name'),
-            'status' => 1,
-        ]);
+        $user = new User();
+            $user->phone = $request->get('phone');
+            $user->password = bcrypt($request->get('password'));
+            $user->name = $request->get('name');
+            $user->level = 1;
         $user->save();
         return redirect('/user')->with('success', 'New user has been added');
     }
