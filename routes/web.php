@@ -12,17 +12,16 @@
 */
 
 Auth::routes();
-Route::get('/logout',function (){
-   Auth::logout();
-   Return redirect('/');
-});
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('user', 'UsersController')->middleware('auth');
-Route::get('/user/delete/{id}', 'UsersController@destroy')->middleware('auth');
+Route::get('/','AuthController@login');
+Route::get('/login','AuthController@login');
+Route::post('/login','AuthController@login');
+Route::get('/logout','AuthController@logout');
+Route::get('/home', 'AuthController@home')->middleware('checkSession');
+Route::resource('user', 'UsersController')->middleware('checkSession');
+Route::get('/user/delete/{id}', 'UsersController@destroy')->middleware('checkSession');
 
-Route::resource('group', 'GroupController')->middleware('auth');
-Route::get('group/delete/{id}', 'GroupController@destroy')->middleware('auth');
+Route::resource('group', 'GroupController')->middleware('checkSession');
+Route::get('group/delete/{id}', 'GroupController@destroy')->middleware('checkSession');
 
-Route::resource('company', 'CompanyController')->middleware('auth');
-Route::get('company/delete/{id}', 'CompanyController@destroy')->middleware('auth');
+Route::resource('company', 'CompanyController')->middleware('checkSession');
+Route::get('company/delete/{id}', 'CompanyController@destroy')->middleware('checkSession');

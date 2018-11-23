@@ -17,8 +17,7 @@
                     </div>
                     <div class="x_content">
                         <div class="col-md-8 col-sm-offset-2 col-sm-8 col-md-offset-2 col-xs-12 profile_left">
-                        <form action="{{ route('user.update', $user->id) }}" method="post">
-                            @method('PATCH')
+                        <form action="{{ route('user.update', $user->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="name">Name <span class="required">*</span>

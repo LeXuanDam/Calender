@@ -1,5 +1,5 @@
 <div class="navbar nav_title" style="border: 0;">
-    <a href="{{ route('home') }}" class="site_title"><i class="fa fa-paw"></i> <span>Calendar</span></a>
+    <a href="/home" class="site_title"><i class="fa fa-paw"></i> <span>Calendar</span></a>
 </div>
 <div class="clearfix"></div>
 <br/>
@@ -8,7 +8,7 @@
         <h3>General</h3>
         <ul class="nav side-menu">
             <li>
-                <a href="{{ route('home') }}"><i class="fa fa-home"></i> Home </a>
+                <a href="/home"><i class="fa fa-home"></i> Home </a>
             </li>
             <li>
                 <a href="/user"><i class="fa fa-user"></i> User </a>

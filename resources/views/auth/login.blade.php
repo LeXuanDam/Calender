@@ -30,7 +30,7 @@
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="/login">
                 <h1>Login Form</h1>
                     <div class="card-body">
                             @csrf
@@ -38,13 +38,7 @@
                             <div class="form-group row">
 
                                 <div class="col-md-12">
-                                    <input id="email" type="email" placeholder="User name" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                    @endif
+                                    <input id="email" type="text" placeholder="User name" class="form-control" name="user_name" value="{{ old('user_name') }}" required autofocus>
                                 </div>
                             </div>
 
