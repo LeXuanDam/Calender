@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Log;
-use App\UserGenba;
+
 class UsersController extends Controller
 {
     protected $API_URL;
@@ -45,9 +45,11 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        $a = UserGenba::get();
-        dd($a);
-        $user = User::with('group')->find($id);
+        $response = \Httpful\Request::get( $this->API_URL.'/user/profile/'.$id)
+            ->addHeader('Access-Token', '')
+            ->body(json_encode($entry))
+            ->sendsJson()
+            ->send();
         return view('users.show',['user' => $user]);
     }
 

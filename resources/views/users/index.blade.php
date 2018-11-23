@@ -24,6 +24,11 @@
                                 {{ session()->get('success') }}
                             </div><br/>
                         @endif
+                            @if(session()->get('error'))
+                                <div class="alert alert-error">
+                                    {{ session()->get('error') }}
+                                </div><br/>
+                            @endif
                         <div id="myGrid" style="height: 600px;" class="ag-theme-balham"></div>
                     </div>
                 </div>

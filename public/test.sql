@@ -2,10 +2,10 @@
 -- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 21, 2018 lúc 10:23 AM
--- Phiên bản máy phục vụ: 10.1.31-MariaDB
--- Phiên bản PHP: 7.2.4
+-- Host: 127.0.0.1
+-- Generation Time: Nov 23, 2018 at 09:01 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `test`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `company`
+-- Table structure for table `company`
 --
 
 CREATE TABLE `company` (
@@ -43,7 +43,7 @@ CREATE TABLE `company` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `company`
+-- Dumping data for table `company`
 --
 
 INSERT INTO `company` (`id`, `company_name`, `address`, `phone`, `email`, `fax`, `director`, `created_at`, `updated_at`, `deleted_at`, `description`) VALUES
@@ -55,7 +55,7 @@ INSERT INTO `company` (`id`, `company_name`, `address`, `phone`, `email`, `fax`,
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `group`
+-- Table structure for table `group`
 --
 
 CREATE TABLE `group` (
@@ -69,7 +69,7 @@ CREATE TABLE `group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `group`
+-- Dumping data for table `group`
 --
 
 INSERT INTO `group` (`id`, `group_name`, `created_by`, `total`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -80,7 +80,7 @@ INSERT INTO `group` (`id`, `group_name`, `created_by`, `total`, `created_at`, `u
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -90,7 +90,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -99,7 +99,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -111,7 +111,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `schedule`
+-- Table structure for table `schedule`
 --
 
 CREATE TABLE `schedule` (
@@ -128,7 +128,7 @@ CREATE TABLE `schedule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `schedule`
+-- Dumping data for table `schedule`
 --
 
 INSERT INTO `schedule` (`id`, `user_id`, `start_time`, `end_time`, `title`, `location`, `memo`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -143,12 +143,16 @@ INSERT INTO `schedule` (`id`, `user_id`, `start_time`, `end_time`, `title`, `loc
 (10, 1, '2018-10-29 00:00:00', '2018-10-31 00:00:00', 'test schedule', 'Số 1 Thái Hà', 'API Schedule', '2018-11-06 03:24:59', '2018-11-06 03:24:59', NULL),
 (11, 1, '2018-10-29 00:00:00', '2018-10-30 00:00:00', 'test schedule', 'Số 1 Thái Hà', 'API Schedule', '2018-11-06 07:01:53', '2018-11-06 07:01:53', NULL),
 (12, 1, '2018-10-30 00:00:00', '2018-10-30 00:00:00', 'test schedule', 'Số 1 Thái Hà', 'API Schedule', '2018-11-06 07:07:29', '2018-11-06 07:07:29', NULL),
-(13, 1, '2018-10-03 00:00:00', '2018-10-03 00:00:00', 'test schedule', 'Số 1 Thái Hà', 'API Schedule', '2018-11-06 07:48:01', '2018-11-06 07:48:01', NULL);
+(13, 1, '2018-10-03 00:00:00', '2018-10-03 00:00:00', 'test schedule', 'Số 1 Thái Hà', 'API Schedule', '2018-11-06 07:48:01', '2018-11-06 07:48:01', NULL),
+(14, 4, '2018-12-01 00:00:00', '2018-12-01 00:00:00', 'di choi', 'ha noi', 'test', '2018-11-22 02:48:32', '2018-11-22 02:48:32', NULL),
+(15, 4, '2018-12-01 00:00:00', '2018-12-01 00:00:00', 'di choi', 'ha noi', 'test', '2018-11-22 02:49:14', '2018-11-22 02:49:14', NULL),
+(16, 4, '2018-12-01 00:00:00', '2018-12-05 00:00:00', 'di choi', 'ha noi', 'test', '2018-11-22 03:40:20', '2018-11-22 03:40:20', NULL),
+(17, 4, '2018-02-01 00:00:00', '2018-05-05 00:00:00', 'di choi', 'ha noi', 'test', '2018-11-22 03:41:43', '2018-11-22 03:41:43', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -172,14 +176,14 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `level`, `group_id`, `birthday`, `avatar`, `phone`, `address`, `gender`, `facebook_id`, `line_id`, `remember_token`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'dam.le@fujitechjsc.com', '$2y$10$Szcg9vTECIJzJxO9G3k20ObKEE0QFa3JMBqkkUZv9jeFjHTijvHIS', 9, 1, '1990-10-20', 'http://localhost/Calendara_app/public/avatar/avatar_1.PNG', '+84918484638', 'Số 1 Thái Hà', 1, NULL, NULL, 'dqLyXMTddAD1e1B671XXNfL3KyjVEo8i1WDnHK9KT12nNrkvWQnkBBK2IG3D', NULL, '2018-11-01 01:39:41', '2018-11-15 02:57:12'),
+(1, 'admin', 'dam.le@fujitechjsc.com', '$2y$10$Szcg9vTECIJzJxO9G3k20ObKEE0QFa3JMBqkkUZv9jeFjHTijvHIS', 9, 1, '1990-10-20', 'http://localhost/Calendara_app/public/avatar/avatar_1.PNG', '+84918484638', 'Số 1 Thái Hà', 1, NULL, NULL, '3IITf0i6zCWm4VCDncAcJF89bL4MI68iYzewyZC7DiatfFROZnYEuS0p83Ai', NULL, '2018-11-01 01:39:41', '2018-11-15 02:57:12'),
 (2, 'dampow', 'dampow@gmail.com', '$2y$10$8nYZImt6u3WTMcU7vFdtyeU3yn4DpEjUT0Qfis..H4KPs1/5QrCtK', 1, 1, '1990-10-20', NULL, '+84349609913', 'Số 1 Thái Hà', 1, NULL, NULL, '4B5wdIbz3W9ryfk3ZNlzOHBksPLaSGN2QQrlx0bTuhzOnTwxPUFWa7LNZSMS', NULL, '2018-11-01 01:40:30', '2018-11-01 01:40:30'),
 (3, 'Le Xuan Dam', 'dampow@gmail.com', '$2y$10$wEESOGAlppEI16nplX7p7.JM/k8ApUZu/SOEm0f1OUoAfBLiBmYKC', 1, 1, '1990-10-20', NULL, '+84965737294', 'Số 1 Thái Hà', 1, NULL, NULL, 'vIr3JkVps0zgzmrLBdklLpFAKjosZCqz2GgDpTUVtPz0kg411LUndCxz7bED', NULL, '2018-11-01 18:59:44', '2018-11-15 02:57:12'),
-(4, 'Le Xuan Dam', 'dam.le@fujitechjsc12.com', '$2y$10$bLlRDcTzOzCtZW9NF.Kzpel07zz21o90H6sNz1r.JoIIYxQuPBfKi', 9, 1, '1990-10-20', NULL, '0918484638', 'Số 1 Thái Hà', 1, NULL, NULL, NULL, NULL, '2018-11-01 19:00:10', '2018-11-15 02:57:12'),
+(4, 'Le Xuan Dam', 'dam.le@fujitechjsc12.com', '$2y$10$bLlRDcTzOzCtZW9NF.Kzpel07zz21o90H6sNz1r.JoIIYxQuPBfKi', 9, 1, '1990-10-20', 'http://192.168.0.91/avatar/avatar_4.jpg', '0918484638', 'Số 1 Thái Hà', 1, NULL, NULL, NULL, NULL, '2018-11-01 19:00:10', '2018-11-15 02:57:12'),
 (5, 'Le Xuan Dam', NULL, '$2y$10$bkxv2GLlDE6dIuqy0EWxKe4vsV4fe8grQh.e/ao28GdAAK2PJoc8S', 1, NULL, '1990-10-20', NULL, '0918484131', 'Số 1 Thái Hà', 1, NULL, NULL, NULL, NULL, '2018-11-01 19:02:43', '2018-11-01 19:02:43'),
 (6, 'Dam Pow', 'dam.le@gmail.com', '$2y$10$pLPqT1ApS86U1a9LzILhyOGURTLxKHr180cBCce8MyMbu9I8MThhq', 1, NULL, '1990-10-20', NULL, '09184841232', 'Số 1 Thái Hà', 1, NULL, NULL, NULL, NULL, '2018-11-05 20:21:48', '2018-11-14 23:42:51'),
 (7, 'Le Xuan Dam1', 'dam.le@fujitechjsc.com', '$2y$10$l0tQQb0WZURNRAaRZMd6.uV5GDzBGLX2RtiPrRYz61bQhMrIKpePy', 1, 1, '1990-10-20', NULL, '091848412', 'Tầng 5 Số 1 Thái Hà', 1, NULL, NULL, NULL, NULL, '2018-11-05 20:23:18', '2018-11-15 02:57:12'),
@@ -195,75 +199,76 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `level`, `group_id`, `bi
 (17, 'a', NULL, '$2y$10$CoHJH4J9dQA8NT5tAqDsyOexxT7l54kZ49X8HChwZhI1ukWTJzd4u', 0, NULL, NULL, NULL, '123', NULL, 1, NULL, NULL, NULL, NULL, '2018-11-19 01:33:26', '2018-11-19 01:33:26'),
 (18, 'a', 'a', '$2y$10$0lYeqh3AcbTICb5Uq55e/O4g2uLF97V/z45q9JKO3BH4hr/FUfvL6', 0, NULL, '1970-01-01', NULL, '1234', 'a', 1, NULL, NULL, NULL, NULL, '2018-11-19 01:35:06', '2018-11-19 01:35:06'),
 (19, 'aaa', 'aa', '$2y$10$HD0B7zbpcwDG.wrFUqrJeupnjnMGU/ZDhAyLjTT0zRqISfzTo52YG', 0, NULL, '1970-01-01', NULL, '123456', 'aa', 1, NULL, NULL, NULL, NULL, '2018-11-19 01:44:20', '2018-11-19 01:44:20'),
-(20, 'q', 'q', '$2y$10$fBH.uB0fZELRrtIFBwj3cuWZlI8s93BIrCYWiUQWV.G3o.d432j7.', 0, NULL, '1990-11-19', NULL, '1', 'q', 1, NULL, NULL, NULL, NULL, '2018-11-19 01:52:32', '2018-11-20 19:54:56');
+(20, 'q', 'q', '$2y$10$fBH.uB0fZELRrtIFBwj3cuWZlI8s93BIrCYWiUQWV.G3o.d432j7.', 0, NULL, '1990-11-19', NULL, '1', 'q', 1, NULL, NULL, NULL, NULL, '2018-11-19 01:52:32', '2018-11-20 19:54:56'),
+(21, 'fuji', NULL, '$2y$10$L.9X89LMr68fDoiM9b4UmepJ3vRtY8bSu3G4nDzdzG8pqiCOy627S', 1, NULL, NULL, NULL, '0123456789', NULL, 1, NULL, NULL, NULL, NULL, '2018-11-22 01:02:36', '2018-11-22 01:02:36');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `company`
+-- Indexes for table `company`
 --
 ALTER TABLE `company`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `group`
+-- Indexes for table `group`
 --
 ALTER TABLE `group`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `schedule`
+-- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `company`
+-- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT cho bảng `group`
+-- AUTO_INCREMENT for table `group`
 --
 ALTER TABLE `group`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT cho bảng `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT cho bảng `schedule`
+-- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT cho bảng `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
